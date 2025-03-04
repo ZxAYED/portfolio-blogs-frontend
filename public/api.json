@@ -1,0 +1,113 @@
+[
+  {
+    "projectId": "01",
+    "projectName": "The Pencil Palace",
+    "description": "The Pencil Palace is your ultimate destination for high-quality stationery and office supplies. Whether you're a student, artist, or professional, we've got everything you need to fuel your creativity and productivity. Our platform offers a seamless e-commerce experience, integrating cutting-edge technologies to provide a secure, optimized, and enjoyable shopping experience. Browse, shop, and manage your orders with ease, while administrators can efficiently manage products, orders, and users.",
+    "features": [
+      "Browse Without Login: Explore the Home Page, About Us, and Products freely.",
+      "User Authentication: Sign Up / Log In with Firebase Auth, Forgot Password? Receive a secure reset link via email.",
+      "Shopping Experience: View detailed product descriptions, add items to the cart, proceed to checkout, enter delivery details, and make payments via ShurjoPay.",
+      "Order History: View past purchases.",
+      "Admin Panel: Manage products, update orders, and manage users.",
+      "404 Page for smooth navigation.",
+      "Global Error Handling in Backend.",
+      "Fixed API Response Structure for reliability.",
+      "Image Storage: Cloudinary integration for secure and optimized image hosting.",
+      "Frontend Optimization: react-image ensures faster loading & better quality.",
+      "Secure JWT Authentication for backend security.",
+      "Payment Gateway Integration: ShurjoPay for processing transactions.",
+      "Security Measures: bcrypt.js for password hashing."
+    ],
+
+    "githubClientCode": "https://github.com/ZxAYED/the-pencil-palace-frontend",
+    "githubServerCode": " https://github.com/ZxAYED/the-pencil-palace",
+    "liveLink": "https://the-pencil-palace.netlify.app",
+    "imageUrl": "https://res.cloudinary.com/dhl04adhz/image/upload/f_auto,q_auto/mp2rqchpnhy4ngr2qv6l"
+  },
+
+  {
+    "projectId": "02",
+    "projectName": "Swifty Mail - A team project",
+    "description": "Swifty Mail revolutionizes email management through its innovative approach to privacy and inbox organization. By offering disposable email addresses and a range of advanced features, Swifty Mail empowers users to navigate the digital landscape with confidence and ease.Solution to Real-Time Problems. In today`s digital age, online privacy is paramount. Swifty Mail addresses common inbox challenges by providing temporary disposable email addresses, shielding users from spam and unwanted solicitation. This ensures a clutter-free and secure inbox experience.",
+    "features": [
+      "Temporary Disposable Email: Instantly generate disposable email addresses for enhanced privacy and security.",
+      "Community and Forum Section: Access instant assistance and guidance on various website functionalities.",
+      "Password Strength Checker: Evaluate and strengthen password security for premium users.",
+      "IP Address Tracker: Obtain real-time information about online presence with a simple click.",
+      "Notes Management System: Organize tasks and projects effortlessly with a Trello-like notes management system.",
+      "Cloud Storage Service: Manage files and store data securely in the cloud for easy access.",
+      "Role-Based System and Admin Panel: Comprehensive control for administrators over user management, article moderation, review management, and website statistics."
+    ],
+
+    "githubClientCode": "https://github.com/DeveloperAlihasan404439/Team-client-project",
+    "githubServerCode": "https://github.com/DeveloperAlihasan404439/Team-server-project-",
+    "liveLink": "https://swift-mail-5a7d7.web.app",
+    "imageUrl": "https://res.cloudinary.com/dhl04adhz/image/upload/f_auto,q_auto/hwr3b2tn5vg44r0menck"
+  },
+  {
+    "projectId": "03",
+    "projectName": "Game Management Event",
+    "description": "Seamless Integration of React AOS Motion for Engaging UI Secure Firebase Authentication for Participant Access Beautiful Design Elements for Visual Appeal Real-time Notifications with Toastify Efficient Event Management with React DOM ",
+    "features": [
+      "Seamless Integration of React AOS Motion for Engaging UI",
+      "Secure Firebase Authentication for Participant Access",
+      "Beautiful Design Elements for Visual Appeal",
+      "Real-time Notifications with Toastify",
+      "Efficient Event Management with React DOM"
+    ],
+    "githubClientCode": "https://github.com/ZxAYED/game-event-management",
+
+    "liveLink": "https://zxayeds-game-event-management.netlify.app",
+    "imageUrl": "https://i.ibb.co/NsJxm4P/game.png",
+    "githubServerCode": ""
+  },
+
+  {
+    "projectId": "04",
+    "projectName": "TaqwaMate",
+    "description": "Experience the next level of matrimony with our innovative platform. Our website combines advanced features such as secure authentication with JWT and Firebase, efficient data handling with Tanstack Query, user-friendly profile management using React Hook Form, engaging UI elements with Lotties, animations, and toasts, and seamless integration with MongoDB for reliable data persistence. Elevate your journey to finding a life partner with a trusted, efficient, and delightful matrimony experience.",
+    "features": [
+      "Secure Authentication with JWT and Firebase",
+      "Efficient and Dynamic Data Handling with Tanstack Query",
+      "User-Friendly Profile Management with React Hook Form",
+      "Engaging UI with Lotties, Animations, and Toasts",
+      "Seamless Integration with MongoDB for Data Persistence"
+    ],
+    "githubClientCode": "https://github.com/ZxAYED/z-matrimony",
+    "githubServerCode": "https://github.com/ZxAYED/taqwamate-server",
+    "liveLink": "https://taqwamate.netlify.app",
+    "imageUrl": "https://i.ibb.co/tBT13NZ/matri.png"
+  },
+  {
+    "projectId": "05",
+    "projectName": "RizkShare",
+    "description": "The core focus of the project is facilitating the donation and distribution of food to those in need  & developed using the MERN stack, enabling users to order or donate food effortlessly. Seamlessly blending React for dynamic interfaces, MongoDB for efficient data management, and Express for robust server-side functionalities, this project fosters a community-driven initiative to address food security.",
+    "features": [
+      "User-Friendly Food Donation and Ordering",
+      "Secure JWT and Firebase Authentication",
+      "Interactive UI with React Toast and AOS",
+      "Real-Time Server-Client Interaction",
+      "Gorgeous and Responsive Design"
+    ],
+
+    "githubClientCode": "https://github.com/ZxAYED/rizkshare",
+    "githubServerCode": "https://github.com/ZxAYED/rizkshare-server",
+    "liveLink": "https://zayed-rizkshare.netlify.app",
+    "imageUrl": "https://res.cloudinary.com/dhl04adhz/image/upload/f_auto,q_auto/fupdwhnagghwll0kbza9"
+  },
+  {
+    "projectId": "06",
+    "projectName": "TechLab-Z",
+    "description": "Step into the world of tech with Myonline electronics and gadgets store, where innovation meets convenience. Explore a seamless e-commerce experience with a captivating design, complete CRUD operations, and user-friendly product management. Secure your journey with login authentication, receive real-time feedback with Toastify, and immerse yourself in a visually stunning platform. Unleash the power to showcase and explore cutting-edge electronics effortlessly.",
+    "features": [
+      "Complete CRUD Operations for Effortless Product Management",
+      "Secure Login Authentication for User Privacy",
+      "Real-time Feedback with Toastify",
+      "Captivating Design for a Visually Stunning Experience"
+    ],
+    "githubClientCode": "https://github.com/ZxAYED/techLab-z",
+    "githubServerCode": "https://github.com/ZxAYED/techlab-z-server",
+    "liveLink": "https://techlab-z.netlify.app",
+    "imageUrl": "https://i.ibb.co/0GbM44T/tech.png"
+  }
+]
