@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import ZButton from "@/components/shared/ZButton";
 import { Input } from "@/components/ui/input";
@@ -40,7 +41,7 @@ export default function Contact() {
         return;
       }
       toast.success("Message sent successfully!");
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message);
       console.log(error);
     }

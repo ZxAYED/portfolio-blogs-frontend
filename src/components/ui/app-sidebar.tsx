@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Home, Notebook, User } from "lucide-react";
+import { Contact, Home, Notebook, User } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { GrProjects } from "react-icons/gr";
@@ -24,6 +24,11 @@ const items = [
     title: "Create Projects",
     url: "/dashboard/create-project",
     icon: GrProjects,
+  },
+  {
+    title: "All Contacts ",
+    url: "/dashboard/contact",
+    icon: Contact,
   },
   {
     title: "Back to Home",
