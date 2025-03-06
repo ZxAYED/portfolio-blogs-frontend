@@ -21,7 +21,6 @@ const BlogsPage = async () => {
     cache: "force-cache",
   });
   const blogsData = await res.json();
-  console.log(blogsData);
 
   if (!blogsData)
     return (

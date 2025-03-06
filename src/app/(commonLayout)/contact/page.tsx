@@ -8,12 +8,7 @@ import { useForm } from "react-hook-form";
 
 import { toast } from "react-toastify";
 import img from "../../../../public/images/whyme.webp";
-// export async function generateMetadata(): Promise<Metadata> {
-//   return {
-//     title: `Contact - My Portfolio`,
-//     description: `Contact page for My Portfolio`,
-//   };
-// }
+
 interface ContactFormData {
   name: string;
   email: string;
@@ -27,11 +22,29 @@ export default function Contact() {
     formState: { errors },
   } = useForm<ContactFormData>();
 
-  const onSubmit = (data: ContactFormData) => {
-    localStorage.setItem("contactFormData", JSON.stringify(data));
-    toast.success("Message sent successfully!");
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_LOCAL_URL}/user/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      const result = await res.json();
+      if (!result.success) {
+        toast.error(result.message);
+        return;
+      }
+      toast.success("Message sent successfully!");
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
+    }
   };
-
   return (
     <div className="min-h-screen relative flex  flex-col items-center justify-center px-6 py-12">
       <div className="absolute inset-0 -z-10">
@@ -101,7 +114,7 @@ export default function Contact() {
               <p className="text-red-500 text-sm">{errors.message.message}</p>
             )}
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center my-4">
             <ZButton name="Submit"></ZButton>
           </div>
         </form>

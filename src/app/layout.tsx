@@ -1,4 +1,8 @@
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { Bounce, ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
@@ -34,6 +38,28 @@ export default async function RootLayout({
       <body className={`${InterFont.variable}  antialiased`}>
         <ThemeProvider initialTheme={themeFromCookie}>
           <main className="min-h-screen">{children}</main>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+            toastStyle={{
+              backgroundColor: "var(--card)",
+              color: "var(--foreground)",
+              border: "1px solid var(--border)",
+            }}
+            progressStyle={{
+              backgroundColor: "var(--primary)",
+            }}
+          />
+          ;
         </ThemeProvider>
       </body>
     </html>
