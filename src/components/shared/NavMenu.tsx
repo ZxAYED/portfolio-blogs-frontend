@@ -11,14 +11,15 @@ import {
 import { motion } from "framer-motion";
 
 import Link from "next/link";
+import DropDown from "../ui/dropdown";
 import ThemeToggle from "./ThemeToggleBtn";
 
 const NavBar = () => {
   const navmenus = [
-    { name: "Home", path: "home" },
-    { name: "Projects", path: "projects" },
-    { name: "Blogs", path: "blogs" },
-    { name: "Contact", path: "contact" },
+    { name: "Home", path: "/home" },
+    { name: "Projects", path: "/projects" },
+    { name: "Blogs", path: "/blogs" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const navLinks = (
@@ -36,7 +37,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className=" sticky top-0 md:top-6 z-90 ">
+    <div className=" sticky top-0 md:top-6 z-50 ">
       <div className="max-w-7xl mx-auto px-4 py-4 md:mb-4  md:border border-b-[1px] md:rounded-md rounded backdrop-blur-xl">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
@@ -85,7 +86,7 @@ const NavBar = () => {
             </DropdownMenu>
           </div>
           <div className="hidden lg:block">
-            <ThemeToggle />
+            <DropDown />
           </div>
         </div>
       </div>

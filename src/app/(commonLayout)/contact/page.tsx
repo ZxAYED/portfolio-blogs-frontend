@@ -1,5 +1,4 @@
 "use client";
-
 import ZButton from "@/components/shared/ZButton";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,8 +7,13 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 
 import { toast } from "react-toastify";
-import img from "../../../public/images/whyme.webp";
-
+import img from "../../../../public/images/whyme.webp";
+// export async function generateMetadata(): Promise<Metadata> {
+//   return {
+//     title: `Contact - My Portfolio`,
+//     description: `Contact page for My Portfolio`,
+//   };
+// }
 interface ContactFormData {
   name: string;
   email: string;

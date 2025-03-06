@@ -32,7 +32,9 @@ export default async function RootLayout({
         <link rel="icon" href="/images/favicon.png" sizes="any" />
       </head>
       <body className={`${InterFont.variable}  antialiased`}>
-        <ThemeProvider initialTheme={themeFromCookie}>{children}</ThemeProvider>
+        <ThemeProvider initialTheme={themeFromCookie}>
+          <main className="min-h-screen">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

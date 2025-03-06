@@ -1,4 +1,4 @@
-"use client";
+import ZButton from "@/components/shared/ZButton";
 import {
   Card,
   CardContent,
@@ -6,39 +6,37 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
 
-import ZButton from "@/components/shared/ZButton";
-import { useTheme } from "@/components/theme/ThemeProvider";
-import { IProject } from "./page";
-
-export default function ProjectCard({
-  project,
-  index,
+export async function generateMetadata({
+  params,
 }: {
-  project: IProject;
-  index: number;
-}) {
-  const { theme } = useTheme();
-  useEffect(() => {
-    AOS.init();
-  }, []);
+  params: { id: string };
+}): Promise<Metadata> {
+  return {
+    title: `Project - ${params.id}`,
+    description: `Details for project ${params.id}`,
+  };
+}
 
+export const ProjectInfo = async ({ params }: { params: { id: string } }) => {
+  const id = await params.id;
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_LOCAL_URL}/projects/${id}`,
+    {
+      cache: "no-store",
+    }
+  ).then((res) => res.json());
+
+  const project = data.data;
   return (
-    <Card
-      data-aos="fade-up"
-      data-aos-duration="1000"
-      data-aos-easing="ease-in-out"
-      className="lg:p-6 mx-5 shadow-lg rounded-2xl border   xl:mx-auto"
-    >
+    <Card className="lg:p-6 mx-5 lg:mx-auto max-w-7xl my-20 shadow-lg rounded-2xl border   xl:mx-auto">
       <div
-        className={`flex flex-col lg:flex-row  gap-6 ${
-          index % 2 === 1 ? "lg:flex-row-reverse" : ""
-        }`}
+        className={`flex flex-col lg:flex-row  gap-6 
+         `}
       >
         <div className="w-full p-1 lg:p-0 mt-4 xl:w-1/2">
           <Image
@@ -58,27 +56,22 @@ export default function ProjectCard({
           </CardHeader>
           <CardContent>
             <p
-              className={`text-md mb-4 py-2 ${
-                theme === "dark" ? "text-gray-400" : "text-gray-800"
-              } `}
+              className={`text-md mb-4 py-2
+               
+               `}
             >
               {project?.description}
             </p>
 
-            <ul
-              className={`list-disc list-inside space-y-1 ${
-                theme === "dark" ? "text-gray-400" : "text-gray-700"
-              } `}
-            >
-              {project?.features.map((feature, index) => (
-                <li key={index} className="text-sm">
+            {project?.features && project.features.length > 0 ? (
+              project.features.map((feature: string, index: number) => (
+                <ol key={index} className="text-sm">
                   {feature}
-                </li>
-              ))}
-              {project?.features.length > 5 && (
-                <li className="text-sm text-gray-500">+ more</li>
-              )}
-            </ul>
+                </ol>
+              ))
+            ) : (
+              <p className="text-sm text-gray-500">No features listed</p>
+            )}
           </CardContent>
           <CardFooter className="flex flex-wrap gap-8 mt-8">
             <Link href={project?.liveLink}>
@@ -95,4 +88,5 @@ export default function ProjectCard({
       </div>
     </Card>
   );
-}
+};
+export default ProjectInfo;
