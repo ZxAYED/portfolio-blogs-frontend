@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ZButton from "@/components/shared/ZButton";
 import {
   Card,
@@ -7,23 +8,43 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
-  return {
-    title: `Project - ${params.id}`,
-    description: `Details for project ${params.id}`,
-  };
-}
+// type Props = {
+//   params: Promise<{ id: string }>;
+//   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+// };
 
-export const ProjectInfo = async ({ params }: { params: { id: string } }) => {
-  const id = await params.id;
+// export async function generateMetadata(
+//   { params, searchParams }: Props,
+//   parent: ResolvingMetadata
+// ): Promise<Metadata> {
+//   try {
+//     const { id } = await params;
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_LOCAL_URL}/projects/${id}`
+//     );
+//     if (!res.ok) {
+//       throw new Error("Failed to fetch metadata");
+//     }
+//     const project = await res.json();
+//     return {
+//       title: `${project.data?.title} ||  Project Detail"}`,
+//       description: `Details for the project titled ${project.data?.title}`,
+//     };
+//   } catch (error) {
+//     console.error("Metadata fetch error:", error);
+
+//     return {
+//       title: "project Not Found",
+//       description: "Error loading blog metadata",
+//     };
+//   }
+// }
+
+const ProjectInfo = async ({ params }: any) => {
+  const { id } = await params;
   const data = await fetch(
     `${process.env.NEXT_PUBLIC_LOCAL_URL}/projects/${id}`,
     {
@@ -35,7 +56,7 @@ export const ProjectInfo = async ({ params }: { params: { id: string } }) => {
   return (
     <Card className="lg:p-6 mx-5 lg:mx-auto max-w-7xl my-20 shadow-lg rounded-2xl border   xl:mx-auto">
       <div
-        className={`flex flex-col lg:flex-row  gap-6 
+        className={`flex flex-col lg:flex-row  gap-6
          `}
       >
         <div className="w-full p-1 lg:p-0 mt-4 xl:w-1/2">
@@ -57,7 +78,7 @@ export const ProjectInfo = async ({ params }: { params: { id: string } }) => {
           <CardContent>
             <p
               className={`text-md mb-4 py-2
-               
+
                `}
             >
               {project?.description}

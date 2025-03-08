@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -16,7 +15,7 @@ import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "../shared/ThemeToggleBtn";
 
-export default function DropDown({ session }: any) {
+export default function DropDown() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

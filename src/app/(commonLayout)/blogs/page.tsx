@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import BlogCard from "./BlogCard";
 
 export interface IBlogCardProps {
@@ -9,16 +8,16 @@ export interface IBlogCardProps {
   _id: string;
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: `Blogs - My Portfolio`,
-    description: `Blogs page for My Portfolio`,
-  };
-}
+// export async function generateMetadata(): Promise<Metadata> {
+//   return {
+//     title: `Blogs - My Portfolio`,
+//     description: `Blogs page for My Portfolio`,
+//   };
+// }
 
 const BlogsPage = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/blogs`, {
-    cache: "force-cache",
+    cache: "no-store",
   });
   const blogsData = await res.json();
 

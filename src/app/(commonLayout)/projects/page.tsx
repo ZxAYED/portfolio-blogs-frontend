@@ -1,13 +1,4 @@
-import { Metadata } from "next";
-
 import ProjectCard from "./ProjectCard";
-
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: `Project  b`,
-    description: `Details for project `,
-  };
-}
 
 export interface IProject {
   _id: string;
@@ -21,7 +12,7 @@ export interface IProject {
   githubServerCode: string;
 }
 
-export const ProjectInfo = async () => {
+const Projects = async () => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_LOCAL_URL}/projects`,
     { cache: "no-store" }
@@ -43,4 +34,4 @@ export const ProjectInfo = async () => {
   );
 };
 
-export default ProjectInfo;
+export default Projects;

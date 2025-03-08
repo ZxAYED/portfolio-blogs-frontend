@@ -1,32 +1,41 @@
-import { Metadata } from "next";
 import Image from "next/image";
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: Promise<{ id: string }>;
+// }) {
+//   try {
+//     const { id } = await params;
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/blogs/${id}`);
+//     if (!res.ok) {
+//       throw new Error("Failed to fetch metadata");
+//     }
+//     const blog = await res.json();
+//     return {
+//       title: `${blog.data?.title || "Blog Detail"}`,
+//       description: `Details for the blog titled ${blog.data?.title}`,
+//     };
+//   } catch (error) {
+//     console.error("Metadata fetch error:", error);
+//     return {
+//       title: "Blog Not Found",
+//       description: "Error loading blog metadata",
+//     };
+//   }
+// }
 
-export async function generateMetadata({
+const BlogDetailPage = async ({
   params,
 }: {
-  params: { id: string };
-}): Promise<Metadata> {
-  const id = await params.id;
-  const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/blogs/${id}`);
-  const blog = await res.json();
-
-  return {
-    title: `${blog.data.title} - Blog Detail`,
-    description: `Details for the blog titled ${blog.data.title}`,
-  };
-}
-
-const BlogDetailPage = async ({ params }: { params: { id: string } }) => {
-  const id = await params.id;
-  console.log("🚀 ~ BlogDetailPage ~ id:", id);
-
+  params: Promise<{ id: string }>;
+}) => {
+  const { id } = await params;
   const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/blogs/${id}`, {
     cache: "no-store",
   });
 
   const data = await res.json();
   const blog = data.data || [];
-  console.log("🚀 ~ BlogDetailPage ~ blog:", blog);
 
   return (
     <section className="container mx-auto px-4 py-8">

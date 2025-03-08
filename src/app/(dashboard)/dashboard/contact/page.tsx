@@ -35,7 +35,7 @@ const ContactManagement = () => {
     }
   };
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: string) => {
     setLoading(true);
     try {
       const response = await fetch(
@@ -47,9 +47,7 @@ const ContactManagement = () => {
       if (response.ok) {
         toast.success("Contact deleted successfully");
         setContacts(
-          contacts.filter(
-            (contact) => contact._id !== (id as unknown as string)
-          )
+          contacts.filter((contact) => contact._id !== (id as string))
         );
       } else {
         toast.error("Error deleting contact");
@@ -92,13 +90,13 @@ const ContactManagement = () => {
               </tr>
             ) : (
               contacts.map((contact) => (
-                <tr key={contact.id}>
+                <tr key={contact._id}>
                   <td className="border p-4">{contact.name}</td>
                   <td className="border p-4">{contact.email}</td>
                   <td className="border p-4">{contact.message}</td>
                   <td className="border p-4">
                     <button
-                      onClick={() => handleDelete(contact._id)}
+                      onClick={() => handleDelete(contact._id as string)}
                       className="bg-red-500 text-white p-2 rounded"
                     >
                       Delete

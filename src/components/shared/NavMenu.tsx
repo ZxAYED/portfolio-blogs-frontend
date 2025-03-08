@@ -87,7 +87,7 @@ const NavBar = ({ session }: any) => {
           </div>
           {session ? (
             <div className="block">
-              <DropDown session={session} />
+              <DropDown />
             </div>
           ) : (
             <div className=" block">

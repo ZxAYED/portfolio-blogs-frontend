@@ -1,17 +1,9 @@
 import ZButton from "@/components/shared/ZButton";
 import { Globe } from "lucide-react";
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { IProject } from "./page";
-
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: `All Projects `,
-    description: `List of all projects `,
-  };
-}
 
 const ProjectCard = async ({ project }: { project: IProject }) => {
   return (
