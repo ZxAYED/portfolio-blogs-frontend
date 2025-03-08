@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -10,11 +11,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu } from "lucide-react";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "../shared/ThemeToggleBtn";
 
-export default function DropDown() {
+export default function DropDown({ session }: any) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -46,7 +48,10 @@ export default function DropDown() {
                 <Link href="/dashboard">Dashboard</Link>
               </DropdownMenuItem>
 
-              <DropdownMenuItem className="hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg p-2 cursor-pointer">
+              <DropdownMenuItem
+                onClick={() => signOut()}
+                className="hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg p-2 cursor-pointer"
+              >
                 Log Out
               </DropdownMenuItem>
               <DropdownMenuSeparator />

@@ -26,7 +26,7 @@ export const ProjectInfo = async () => {
     `${process.env.NEXT_PUBLIC_LOCAL_URL}/projects`,
     { cache: "no-store" }
   ).then((res) => res.json());
-  console.log(response);
+
   const project = response.data;
 
   return (

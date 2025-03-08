@@ -5,14 +5,12 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
-  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Contact, Home, Notebook, User } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 import { GrProjects } from "react-icons/gr";
 
 const items = [
@@ -37,37 +35,26 @@ const items = [
   },
 ];
 
-export function AppSidebar() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-
+export const AppSidebar = () => {
   return (
-    <div className="flex ">
-      <button className="lg:hidden text-2xl p-4" onClick={toggleSidebar}>
-        {isSidebarOpen ? "Close" : "Open"} Sidebar
-      </button>
-
-      <Sidebar
-        className={`lg:block ${isSidebarOpen ? "block" : "hidden"} lg:w-60`}
-      >
-        <SidebarHeader />
-        <SidebarContent>
-          <SidebarGroupLabel className="ml-4 text-3xl font-bold mt-2">
+    <Sidebar>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel className="ml-4 mb-8 text-3xl font-bold mt-2">
             <Link
-              className="cursor-pointer hover:text-[#9333EA]"
+              className="cursor-pointer  hover:text-[#9333EA]"
               href="/dashboard"
             >
               Dashboard
             </Link>
           </SidebarGroupLabel>
-          <SidebarGroup />
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link
-                      className="flex items-center ml-4 text-xl mt-2 hover:text-[#9333EA]"
+                      className="flex items-center ml-2 text-[18px] mt-2 hover:text-[#9333EA]"
                       href={item.url}
                     >
                       <item.icon className="text-xl" />
@@ -78,9 +65,8 @@ export function AppSidebar() {
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
-          <SidebarGroup />
-        </SidebarContent>
-      </Sidebar>
-    </div>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
   );
-}
+};

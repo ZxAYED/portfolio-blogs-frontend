@@ -1,12 +1,26 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useTheme } from "@/components/theme/ThemeProvider";
+
 import { signIn } from "next-auth/react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const LoginWithProviders = () => {
   const { theme } = useTheme();
+
+  const handleLogin = async (kela: string) => {
+    try {
+      signIn(kela, {
+        callbackUrl: "/dashboard",
+      });
+    } catch (error: any) {
+      toast.error("Error:" + error.message);
+      console.error("Error signing in:", error);
+    }
+  };
 
   return (
     <div
@@ -21,11 +35,7 @@ const LoginWithProviders = () => {
 
         <div className="mt-6 space-y-4">
           <button
-            onClick={() =>
-              signIn("google", {
-                callbackUrl: "/dashboard",
-              })
-            }
+            onClick={() => handleLogin("google")}
             className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
               theme === "dark"
                 ? "bg-white text-gray-900 hover:bg-gray-300"
@@ -37,11 +47,7 @@ const LoginWithProviders = () => {
           </button>
 
           <button
-            onClick={() =>
-              signIn("github", {
-                callbackUrl: "/dashboard",
-              })
-            }
+            onClick={() => handleLogin("github")}
             className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
               theme === "dark"
                 ? "bg-gray-700 text-white hover:bg-gray-600"

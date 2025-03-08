@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,12 +10,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { motion } from "framer-motion";
-
 import Link from "next/link";
 import DropDown from "../ui/dropdown";
 import ThemeToggle from "./ThemeToggleBtn";
 
-const NavBar = () => {
+const NavBar = ({ session }: any) => {
   const navmenus = [
     { name: "Home", path: "/home" },
     { name: "Projects", path: "/projects" },
@@ -85,9 +85,17 @@ const NavBar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-          <div className="hidden lg:block">
-            <DropDown />
-          </div>
+          {session ? (
+            <div className="block">
+              <DropDown session={session} />
+            </div>
+          ) : (
+            <div className=" block">
+              <Link href="/login">
+                <Button className="Zbutton uppercase ">Login</Button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

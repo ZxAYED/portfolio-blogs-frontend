@@ -55,11 +55,7 @@ export default async function RootLayout({
               color: "var(--foreground)",
               border: "1px solid var(--border)",
             }}
-            progressStyle={{
-              backgroundColor: "var(--primary)",
-            }}
           />
-          ;
         </ThemeProvider>
       </body>
     </html>
